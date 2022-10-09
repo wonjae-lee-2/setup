@@ -1,4 +1,4 @@
-name: docker
+name: vm
 services:
   ubuntu:
     image: ubuntu:22.04
