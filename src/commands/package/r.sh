@@ -34,7 +34,7 @@ then
 fi
 
 # Install packages.
-Rscript ../../config/requirements.r
+Rscript $RESOURCES_FOLDER/requirements.r
 
 # Copy renv files to the config folder.
 cp -t $CONFIG_FOLDER/r $PROJECT_FOLDER/renv.lock $PROJECT_FOLDER/.Rprofile

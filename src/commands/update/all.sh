@@ -28,6 +28,6 @@ bash ../install/spark.sh
 # Update Helm.
 bash ../install/helm.sh
 
-# Update Docker.
+# Update .NET and Docker.
 sudo apt update
 sudo apt upgrade -y

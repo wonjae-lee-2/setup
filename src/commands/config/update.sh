@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Load software versions.
+# Load software versions. (CONFIG_FOLDER is exported from 'vm.sh'.)
 source $CONFIG_FOLDER/env.sh
 
 # Get user input for software versions.
@@ -31,3 +31,6 @@ sed -i \
     -e "s/SPARK_VERSION=.*$/SPARK_VERSION=$NEW_SPARK_VERSION/g" \
     -e "s/JAVA_VERSION=.*$/JAVA_VERSION=$NEW_JAVA_VERSION/g" \
     $CONFIG_FOLDER/env.sh
+
+# Copy the docker compose file for the Jupyter Lab. (RESOURCES_FOLDER is exported from 'vm.sh'.)
+cp $RESOURCES_FOLDER/compose.yaml ~/compose.yaml

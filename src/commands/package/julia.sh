@@ -11,7 +11,7 @@ then
 fi
 
 # Install packages in the project folder.
-julia --project=$PROJECT_FOLDER ../../config/requirements.jl
+julia --project=$PROJECT_FOLDER $RESOURCES_FOLDER/requirements.jl
 
 # Copy project files to the config folder.
 cp -t $CONFIG_FOLDER/julia $PROJECT_FOLDER/Project.toml $PROJECT_FOLDER/Manifest.toml $PROJECT_FOLDER/spec-file.txt

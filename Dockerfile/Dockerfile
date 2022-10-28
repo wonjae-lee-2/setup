@@ -22,4 +22,4 @@ RUN mkdir downloads && \
 
 EXPOSE 8888
 
-CMD ["bash"]
+CMD ["tail", "-f", "/dev/null"]

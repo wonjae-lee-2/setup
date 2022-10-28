@@ -30,14 +30,10 @@ python -m venv $VENV_FOLDER
 pip install -U pip setuptools wheel
 
 # Install and upgrade packages.
-pip install -U -r ../../config/requirements.txt
+pip install -U -r $RESOURCES_FOLDER/requirements.txt
 
 # Create requirements.txt in the Python docker folder.
 pip freeze --all > $CONFIG_FOLDER/python/requirements.txt
-
-# Install the Chromium browser and dependencies.
-playwright install chromium
-playwright install-deps chromium
 
 # Deactivate the virtual environment.
 deactivate
