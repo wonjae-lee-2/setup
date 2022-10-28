@@ -1,0 +1,15 @@
+name: jupyter
+services:
+  datascience:
+    image: jupyter/datascience-notebook:x86_64-ubuntu-22.04
+    ports:
+      - "8888:8888"
+    volumes:
+      - type: volume
+        source: github
+        target: /home/jovyan/github
+volumes:
+  github:
+    driver: rclone
+    driver_opts:
+      remote: "onedrive:backup/github"
