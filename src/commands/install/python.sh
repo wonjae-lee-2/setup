@@ -57,8 +57,5 @@ cd $BUILD_FOLDER
 make -j -s
 sudo make install
 
-# Create a symlink to Python.
-sudo ln -fs $INSTALL_FOLDER/bin/python$PYTHON_VERSION_SHORT /usr/local/bin/python
-
 # Delete the downloaded file.
 sudo rm $DOWNLOAD_FOLDER/Python-$PYTHON_VERSION.tgz

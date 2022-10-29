@@ -17,6 +17,10 @@ echo "R $R_VERSION is the current version in the env file."
 echo "Check the latest version of R. https://www.r-project.org/ https://docs.rstudio.com/resources/install-r/"
 read -p "Which version of R would you like to install? " NEW_R_VERSION
 echo
+echo "RStudio $RSTUDIO_VERSION is the current version in the env file."
+echo "Check the latest version of RStudio. https://www.rstudio.com/"
+read -p "Which version of RStudio would you like to install? " NEW_RSTUDIO_VERSION
+echo
 echo "Spark $SPARK_VERSION is the current version in the env file."
 echo "Java $JAVA_VERSION is the current version in the env file."
 echo "Check the latest version of Spark. https://spark.apache.org/ https://spark.apache.org/docs/latest/"
@@ -28,6 +32,7 @@ sed -i \
     -e "s/PYTHON_VERSION=.*$/PYTHON_VERSION=$NEW_PYTHON_VERSION/g" \
     -e "s/DOTNET_VERSION=.*$/DOTNET_VERSION=$NEW_DOTNET_VERSION/g" \
     -e "s/R_VERSION=.*$/R_VERSION=$NEW_R_VERSION/g" \
+    -e "s/RSTUDIO_VERSION=.*$/RSTUDIO_VERSION=$NEW_RSTUDIO_VERSION/g" \
     -e "s/SPARK_VERSION=.*$/SPARK_VERSION=$NEW_SPARK_VERSION/g" \
     -e "s/JAVA_VERSION=.*$/JAVA_VERSION=$NEW_JAVA_VERSION/g" \
     $CONFIG_FOLDER/env.sh

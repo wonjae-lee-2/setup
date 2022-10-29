@@ -1,4 +1,4 @@
 pip # https://pypi.org/project/pip/
 setuptools # https://pypi.org/project/setuptools/
 wheel # https://pypi.org/project/wheel/
-pythonnet # https://pypi.org/project/pythonnet/
+jupyterlab # https://pypi.org/project/jupyterlab/

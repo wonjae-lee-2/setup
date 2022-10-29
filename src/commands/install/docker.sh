@@ -46,5 +46,6 @@ sudo apt-get install -y \
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-# Set up authentication to Google Cloud Artifact Registry.
+# Set up authentication to Google Cloud Artifact Registry. (The gcloud command cannot be executed within the folder synced by rclone.)
+cd ~
 gcloud auth configure-docker us-central1-docker.pkg.dev --quiet

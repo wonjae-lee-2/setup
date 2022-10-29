@@ -21,10 +21,10 @@ then
 fi
 
 # Create a new virtual environment.
-python -m venv $VENV_FOLDER
+/opt/python/$PYTHON_VERSION/bin/python3 -m venv $VENV_FOLDER
 
 # Activate the virtiual environment.
-. $VENV_FOLDER/bin/activate
+source $VENV_FOLDER/bin/activate
 
 # Install package management tools.
 pip install -U pip setuptools wheel

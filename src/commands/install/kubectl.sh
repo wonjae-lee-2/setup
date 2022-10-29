@@ -8,11 +8,24 @@ then
     exit 1
 fi
 
-# Install kubectl through the gcloud CLI.
-gcloud components install kubectl --quiet
+# Install kubectl and plugin from the ubuntu package manager.
+sudo apt update
+sudo apt install -y \
+    curl \
+    apt-transport-https \
+    ca-certificates \
+    gnupg
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | \
+    sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | \
+    sudo tee /usr/share/keyrings/cloud.google.gpg
+sudo apt update
+sudo apt install -y \
+    kubectl \
+    google-cloud-sdk-gke-gcloud-auth-plugin
 
 # Set environment variables.
-GCLOUD_SERVICE_ACCOUNT=account-1@project-lee-1.iam.gserviceaccount.com
+GCLOUD_SERVICE_ACCOUNT=service-account@project-lee-1.iam.gserviceaccount.com
 KEY_FILE=~/secret/gsa-key.json
 PROJECT_ID=project-lee-1
 CLUSTER_REGION=us-central1
@@ -22,7 +35,8 @@ CLUSTER_ROLE=cluster-admin
 SERVICE_ACCOUNT=$NAMESPACE-$CLUSTER_ROLE
 BINDING_NAME=$SERVICE_ACCOUNT-binding
 
-# Authenticate with a service account.
+# Authenticate with a service account. (The gcloud command cannot be executed within the folder synced by rclone.)
+cd ~
 gcloud auth activate-service-account $GCLOUD_SERVICE_ACCOUNT --key-file=$KEY_FILE --project=$PROJECT_ID
 
 # Configure kubectl command line access

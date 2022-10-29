@@ -11,6 +11,9 @@ echo
 echo "Check the latest version of R. https://www.r-project.org/ https://docs.rstudio.com/resources/install-r/"
 read -p "Which version of R would you like to install? " R_VERSION
 echo
+echo "Check the latest version of RStudio. https://www.rstudio.com/"
+read -p "Which version of RStudio would you like to install? " RSTUDIO_VERSION
+echo
 echo "Check the latest version of Spark. https://spark.apache.org/ https://spark.apache.org/docs/latest/"
 read -p "Which version of Spark would you like to install? " SPARK_VERSION
 read -p "Which version of Java compatible with Spark would you like to install? " JAVA_VERSION
@@ -22,6 +25,7 @@ mkdir $CONFIG_FOLDER
 sed -e "s/PYTHON_VERSION=/PYTHON_VERSION=$PYTHON_VERSION/g" \
     -e "s/DOTNET_VERSION=/DOTNET_VERSION=$DOTNET_VERSION/g" \
     -e "s/R_VERSION=/R_VERSION=$R_VERSION/g" \
+    -e "s/RSTUDIO_VERSION=/RSTUDIO_VERSION=$RSTUDIO_VERSION/g" \
     -e "s/SPARK_VERSION=/SPARK_VERSION=$SPARK_VERSION/g" \
     -e "s/JAVA_VERSION=/JAVA_VERSION=$JAVA_VERSION/g" \
     $RESOURCES_FOLDER/env.sh > $CONFIG_FOLDER/env.sh

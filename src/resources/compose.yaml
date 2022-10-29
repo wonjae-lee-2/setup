@@ -1,6 +1,6 @@
 name: jupyter
 services:
-  datascience:
+  lab:
     image: jupyter/datascience-notebook:x86_64-ubuntu-22.04
     ports:
       - "8888:8888"
