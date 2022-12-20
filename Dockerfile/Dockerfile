@@ -10,8 +10,6 @@ RUN apt-get update && \
     usermod -aG sudo ubuntu && \
     echo "ubuntu ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/ubuntu
 
-COPY src/resources/prepare.sh /home/ubuntu/prepare.sh
-
 WORKDIR /home/ubuntu
 
 USER ubuntu
