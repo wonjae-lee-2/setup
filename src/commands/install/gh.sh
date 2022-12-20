@@ -22,3 +22,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 # Install GitHub CLI from the repository.
 sudo apt update
 sudo apt install -y --no-install-recommends gh
+
+# Authenticate with GitHub. Choose "Login with a web browser".
+gh auth login
