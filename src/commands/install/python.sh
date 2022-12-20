@@ -19,6 +19,7 @@ INSTALL_FOLDER=/opt/python/$PYTHON_VERSION
 # Install build dependencies. https://devguide.python.org/setup/#install-dependencies
 sudo apt update
 sudo apt install -y --no-install-recommends \
+    wget \
     build-essential \
     gdb \
     lcov \

@@ -14,6 +14,7 @@ fi
 sudo apt update
 sudo apt install -y --no-install-recommends \
     curl \
+    ca-certificates \
     unzip
 
 # Install the AWS CLI.
