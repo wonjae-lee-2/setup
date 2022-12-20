@@ -14,3 +14,4 @@ bash spark.sh
 bash julia.sh
 bash ../package/julia.sh
 bash rust.sh
+bash gh.sh

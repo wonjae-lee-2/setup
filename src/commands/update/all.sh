@@ -9,9 +9,9 @@ rclone selfupdate
 # Update AWS CLI.
 bash awscli.sh
 
-# Update Docker and .NET.
+# Update Docker and GitHub CLI.
 sudo apt update
-sudo apt upgrade -y
+sudo apt upgrade -y --no-install-recommends
 
 # Update Google Cloud CLI.
 #sudo snap refresh
