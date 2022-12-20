@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Set folder paths.
-export COMMANDS_FOLDER=~/workspaces/vm/src/commands
-export RESOURCES_FOLDER=~/workspaces/vm/src/resources
+export SRC_FOLDER=~/workspaces/vm/src
+export COMMANDS_FOLDER=$SRC_FOLDER/commands
+export RESOURCES_FOLDER=$SRC_FOLDER/resources
 export CONFIG_FOLDER=~/.vm
 export DOWNLOAD_FOLDER=~/downloads
 

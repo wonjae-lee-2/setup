@@ -25,3 +25,6 @@ sed -e "s/PYTHON_VERSION=/PYTHON_VERSION=$PYTHON_VERSION/g" \
     -e "s/SPARK_VERSION=/SPARK_VERSION=$SPARK_VERSION/g" \
     -e "s/JAVA_VERSION=/JAVA_VERSION=$JAVA_VERSION/g" \
     $RESOURCES_FOLDER/env.sh > $CONFIG_FOLDER/env.sh
+
+# Create a symlink to vm.sh bash script.
+sudo ln -fs $SRC_FOLDER/vm.sh /usr/local/bin/vm

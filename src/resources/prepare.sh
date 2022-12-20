@@ -2,8 +2,6 @@
 
 # Set paths to initial directories.
 DOWNLOAD_FOLDER=~/downloads
-S3_FOLDER=~/s3
-SECRET_FOLDER=~/secrets
 VENV_FOLDER=~/venv
 WORKSPACE_FOLDER=~/workspaces
 
@@ -11,7 +9,7 @@ WORKSPACE_FOLDER=~/workspaces
 #sudo sed -i "s/%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL:ALL) NOPASSWD:ALL/g" /etc/sudoers
 
 # Create initial directories.
-mkdir $DOWNLOAD_FOLDER $S3_FOLDER $SECRET_FOLDER $VENV_FOLDER $WORKSPACE_FOLDER
+mkdir $DOWNLOAD_FOLDER $VENV_FOLDER $WORKSPACE_FOLDER
 
 # Install and configure Rclone for OneDrive and S3.
 curl https://rclone.org/install.sh | sudo bash
@@ -24,25 +22,35 @@ rclone lsd onedrive:
 echo s3
 rclone lsd s3:
 
-# Mount OneDrive and S3.
-rclone mount onedrive:workspaces $WORKSPACE_FOLDER --daemon --file-perms 0777 --vfs-cache-mode full
-rclone mount s3: $S3_FOLDER --daemon --vfs-cache-mode full
+# Create an executable command for syncing current directory to onedrive.
+cat << EOF | sudo tee /usr/local/bin/backup
+#!/bin/bash
 
-# Ensure Rclone mounts OneDrive and S3 if they are not mounted already at log in.
-cat << EOF >> ~/.profile
-
-# Ensure Rclone mounts OneDrive and S3 if they are not mounted already at log in.
-if [ -z "\$(ls -A $WORKSPACE_FOLDER)" ]
-then
-    echo "Mounting OneDrive..."
-    rclone mount onedrive:workspaces $WORKSPACE_FOLDER --daemon --file-perms 0777 --vfs-cache-mode full
-fi
-if [ -z "\$(ls -A $S3_FOLDER)" ]
-then
-    echo "Mounting S3..."
-    rclone mount s3: $S3_FOLDER --daemon --vfs-cache-mode full
-fi
+DIRECTORY_PATH=\$(pwd)
+DIRECTORY_NAME=\$(echo \$DIRECTORY_PATH | rev | cut -d "/" -f 1 | rev)
+rclone sync --progress \$DIRECTORY_PATH onedrive:workspaces/\$DIRECTORY_NAME
 EOF
+sudo chmod +x /usr/local/bin/backup
+
+# Mount OneDrive and S3.
+#rclone mount onedrive:workspaces $WORKSPACE_FOLDER --daemon --file-perms 0777 --vfs-cache-mode full
+#rclone mount s3: $S3_FOLDER --daemon --vfs-cache-mode full
+
+# Ensure Rclone mounts OneDrive and S3 if they are not mounted already at log in.
+#cat << EOF >> ~/.profile
+#
+## Ensure Rclone mounts OneDrive and S3 if they are not mounted already at log in.
+#if [ -z "\$(ls -A $WORKSPACE_FOLDER)" ]
+#then
+#    echo "Mounting OneDrive..."
+#    rclone mount onedrive:workspaces $WORKSPACE_FOLDER --daemon --file-perms 0777 --vfs-cache-mode full
+#fi
+#if [ -z "\$(ls -A $S3_FOLDER)" ]
+#then
+#    echo "Mounting S3..."
+#    rclone mount s3: $S3_FOLDER --daemon --vfs-cache-mode full
+#fi
+#EOF
 
 # Install Git and set the username and user email.
 sudo apt update
@@ -57,6 +65,3 @@ echo
 echo "Add the key below to GitHub."
 cat ~/.ssh/id_ed25519.pub
 echo
-
-# Copy the SSH private and public key to the `secrets` folder.
-cp -t $SECRET_FOLDER ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
