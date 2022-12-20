@@ -8,7 +8,8 @@ RUN apt-get update && \
     useradd -m ubuntu && \
     usermod -aG sudo ubuntu && \
     echo -e "ubuntu\tALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/ubuntu && \
-    mkdir /home/ubuntu/downloads
+    mkdir /home/ubuntu/downloads && \
+    rm -rf /var/lib/apt/lists/*
 
 USER ubuntu
 
