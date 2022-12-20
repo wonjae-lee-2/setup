@@ -6,12 +6,15 @@ source $CONFIG_FOLDER/env.sh
 # Update Rclone.
 rclone selfupdate
 
-# Update Docker, .NET and kubectl.
+# Update AWS CLI.
+bash awscli.sh
+
+# Update Docker and .NET.
 sudo apt update
 sudo apt upgrade -y
 
 # Update Google Cloud CLI.
-sudo snap refresh
+#sudo snap refresh
 
 # Update Python.
 bash ../install/python.sh
@@ -36,7 +39,7 @@ bash ../package/julia.sh
 rustup update
 
 # Update Helm.
-bash ../install/helm.sh
+#bash ../install/helm.sh
 
 # Update Rclone plugin.
 docker plugin disable rclone

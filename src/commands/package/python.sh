@@ -32,8 +32,5 @@ pip install -U pip setuptools wheel
 # Install and upgrade packages.
 pip install -U -r $RESOURCES_FOLDER/requirements.txt
 
-# Create requirements.txt in the Python docker folder.
-pip freeze --all > $CONFIG_FOLDER/python/requirements.txt
-
 # Deactivate the virtual environment.
 deactivate

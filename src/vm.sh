@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set folder paths.
-export COMMANDS_FOLDER=~/github/vm/src/commands
-export RESOURCES_FOLDER=~/github/vm/src/resources
+export COMMANDS_FOLDER=~/workspaces/vm/src/commands
+export RESOURCES_FOLDER=~/workspaces/vm/src/resources
 export CONFIG_FOLDER=~/.vm
 export DOWNLOAD_FOLDER=~/downloads
 

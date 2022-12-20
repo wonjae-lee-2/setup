@@ -14,11 +14,11 @@ fi
 # Set environment variables.
 R_VERSION_SHORT=$(echo $R_VERSION | cut -d "." -f -2)
 INSTALL_FOLDER=/opt/spark/$SPARK_VERSION
-SPARKLYR_FOLDER=~/venv/r/$R_VERSION/renv/library/R-$R_VERSION_SHORT/x86_64-pc-linux-gnu/sparklyr/java
+SPARKLYR_FOLDER=~/venv/r/$R_VERSION/renv/library/R-$R_VERSION_SHORT/aarch64-unknown-linux-gnu/sparklyr/java
 
-# Install Java 11 runtime environment.
+# Install Java runtime environment.
 sudo apt update
-sudo apt install -y openjdk-$JAVA_VERSION-jre
+sudo apt install -y --no-install-recommends openjdk-$JAVA_VERSION-jdk
 
 # Download the Spark binary. (DOWNLOAD_FOLDER is exported from 'vm.sh'.)
 cd $DOWNLOAD_FOLDER

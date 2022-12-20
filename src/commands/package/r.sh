@@ -17,14 +17,12 @@ export LINUX_CODENAME=$(lsb_release -cs)
 
 # Install package dependencies.
 sudo apt update
-sudo apt install -y \
+sudo apt install -y --no-install-recommends \
     libcurl4-openssl-dev \
     libssl-dev \
-    libpq-dev \
     libxml2-dev
     # libcurl4-openssl-dev - curl
     # libssl-dev - curl, GGally
-    # libpq-dev - RPostgres
     # libxml2-dev - xml2
 
 # Remove renv infrastructure files.
@@ -35,7 +33,3 @@ fi
 
 # Install packages.
 Rscript $RESOURCES_FOLDER/requirements.r
-
-# Copy renv files to the config folder.
-cp -t $CONFIG_FOLDER/r $PROJECT_FOLDER/renv.lock $PROJECT_FOLDER/.Rprofile
-cp -t $CONFIG_FOLDER/r/renv $PROJECT_FOLDER/renv/activate.R $PROJECT_FOLDER/renv/settings.dcf

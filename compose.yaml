@@ -1,0 +1,17 @@
+name: vm
+services:
+  dev:
+    image: ubuntu:22.04
+    build:
+      context: ./
+      dockerfile: ./Dockerfile/Dockerfile
+    volumes:
+      - type: volume
+        source: vm
+        target: /home/ubuntu/workspaces/vm
+    tty: true
+volumes:
+  vm:
+    driver: rclone
+    driver_opts:
+      remote: "onedrive:workspaces/vm"

@@ -14,8 +14,8 @@ fi
 source $CONFIG_FOLDER/env.sh
 
 # Set the version variable.
-DOTNET_VERSION_SHORT=$(echo $DOTNET_VERSION | cut -d "." -f 1)
+DOTNET_VERSION_SHORT=$(echo $DOTNET_VERSION | cut -d "." -f -2)
 
 # Install .NET SDK.
 sudo apt update
-sudo apt install -y dotnet$DOTNET_VERSION_SHORT
+sudo apt install -y dotnet-sdk-$DOTNET_VERSION_SHORT

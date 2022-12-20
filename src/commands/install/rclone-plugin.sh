@@ -2,7 +2,7 @@
 
 # Install dependencies.
 sudo apt update
-sudo apt-get -y install fuse
+sudo apt-get -y install --no-install-recommends fuse
 
 # Create two directories required by the plugin.
 sudo mkdir -p /var/lib/docker-plugins/rclone/config
@@ -12,4 +12,4 @@ sudo mkdir -p /var/lib/docker-plugins/rclone/cache
 sudo cp ~/.config/rclone/rclone.conf /var/lib/docker-plugins/rclone/config
 
 # Install the plugin.
-docker plugin install rclone/docker-volume-rclone:amd64 --alias rclone --grant-all-permissions args="-v --allow-other --vfs-cache-mode=full"
+sudo docker plugin install rclone/docker-volume-rclone:arm64 --alias rclone --grant-all-permissions args="-v --allow-other --vfs-cache-mode=full"

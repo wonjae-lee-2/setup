@@ -22,7 +22,7 @@ GPG_KEY_PATH=/usr/share/keyrings/docker.gpg
 
 # Install dependencies.
 sudo apt update
-sudo apt install -y \
+sudo apt install -y --no-install-recommends \
     ca-certificates \
     curl \
     gnupg \
@@ -36,7 +36,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=$GPG_KEY_PATH] https://do
 
 # Install Docker from the repository.
 sudo apt-get update
-sudo apt-get install -y \
+sudo apt-get install -y --no-install-recommends \
     docker-ce \
     docker-ce-cli \
     containerd.io \
@@ -46,6 +46,5 @@ sudo apt-get install -y \
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-# Set up authentication to Google Cloud Artifact Registry. (The gcloud command cannot be executed within the folder synced by rclone.)
-cd ~
-gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+# Authenticate Docker to ECR.
+aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 284409997699.dkr.ecr.us-east-1.amazonaws.com

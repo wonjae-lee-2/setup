@@ -16,17 +16,17 @@ RSTUDIO_VERSION_FILENAME=$(echo $RSTUDIO_VERSION | sed 's/+/-/')
 
 # Install dependencies.
 sudo apt update
-sudo apt install -y gdebi-core
+sudo apt install -y --no-install-recommends gdebi-core
 
 # Download RStudio. (DOWNLOAD_FOLDER is exported from 'vm.sh'.)
 cd $DOWNLOAD_FOLDER
-wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-$RSTUDIO_VERSION_FILENAME-amd64.deb
+wget https://s3.amazonaws.com/rstudio-ide-build/server/jammy/arm64/rstudio-server-$RSTUDIO_VERSION_FILENAME-arm64.deb
 
 # Install RStudio.
-sudo gdebi rstudio-server-$RSTUDIO_VERSION_FILENAME-amd64.deb
+sudo gdebi rstudio-server-$RSTUDIO_VERSION_FILENAME-arm64.deb
 
 # Remove the downloaded file.
-sudo rm $DOWNLOAD_FOLDER/rstudio-server-$RSTUDIO_VERSION_FILENAME-amd64.deb
+sudo rm $DOWNLOAD_FOLDER/rstudio-server-$RSTUDIO_VERSION_FILENAME-arm64.deb
 
 # Stop RStudio Server.
 sudo systemctl stop rstudio-server

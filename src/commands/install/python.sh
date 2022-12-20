@@ -18,7 +18,7 @@ INSTALL_FOLDER=/opt/python/$PYTHON_VERSION
 
 # Install build dependencies. https://devguide.python.org/setup/#install-dependencies
 sudo apt update
-sudo apt install -y \
+sudo apt install -y --no-install-recommends \
     build-essential \
     gdb \
     lcov \
@@ -57,5 +57,6 @@ cd $BUILD_FOLDER
 make -j -s
 sudo make install
 
-# Delete the downloaded file.
+# Delete the downloaded file and the build folder.
 sudo rm $DOWNLOAD_FOLDER/Python-$PYTHON_VERSION.tgz
+sudo rm -r $BUILD_FOLDER
