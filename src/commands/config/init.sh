@@ -27,4 +27,4 @@ sed -e "s/PYTHON_VERSION=/PYTHON_VERSION=$PYTHON_VERSION/g" \
     $RESOURCES_FOLDER/env.sh > $CONFIG_FOLDER/env.sh
 
 # Create a symlink to vm.sh bash script.
-sudo ln -fs $SRC_FOLDER/vm.sh /usr/local/bin/vm
+sudo ln -fs $SRC_FOLDER/setup.sh /usr/local/bin/setup
