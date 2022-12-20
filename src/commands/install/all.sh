@@ -2,6 +2,7 @@
 
 # Run install scripts.
 bash awscli.sh
+bash rclone.sh
 bash docker.sh
 bash rclone-plugin.sh
 bash python.sh

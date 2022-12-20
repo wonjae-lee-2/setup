@@ -11,27 +11,6 @@ WORKSPACE_FOLDER=~/workspaces
 # Create initial directories.
 mkdir $DOWNLOAD_FOLDER $VENV_FOLDER $WORKSPACE_FOLDER
 
-# Install and configure Rclone for OneDrive and S3.
-curl https://rclone.org/install.sh | sudo bash
-rclone config
-# Set the name of the remote as ondrive and s3.
-
-# Test remote connections.
-echo onedrive
-rclone lsd onedrive:
-echo s3
-rclone lsd s3:
-
-# Create an executable command for syncing current directory to onedrive.
-cat << EOF | sudo tee /usr/local/bin/backup
-#!/bin/bash
-
-DIRECTORY_PATH=\$(pwd)
-DIRECTORY_NAME=\$(echo \$DIRECTORY_PATH | rev | cut -d "/" -f 1 | rev)
-rclone sync --progress \$DIRECTORY_PATH onedrive:workspaces/\$DIRECTORY_NAME
-EOF
-sudo chmod +x /usr/local/bin/backup
-
 # Mount OneDrive and S3.
 #rclone mount onedrive:workspaces $WORKSPACE_FOLDER --daemon --file-perms 0777 --vfs-cache-mode full
 #rclone mount s3: $S3_FOLDER --daemon --vfs-cache-mode full
