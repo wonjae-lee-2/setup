@@ -8,7 +8,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     useradd -m ubuntu && \
     usermod -aG sudo ubuntu && \
-    echo -e "ubuntu\tALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/ubuntu
+    echo "ubuntu ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/ubuntu
 
 COPY src/resources/prepare.sh /home/ubuntu/prepare.sh
 
