@@ -12,7 +12,9 @@ fi
 
 # Install dependencies.
 sudo apt update
-sudo apt install -y --no-install-recommends unzip
+sudo apt install -y --no-install-recommends \
+    curl \
+    unzip
 
 # Install the AWS CLI.
 cd $DOWNLOAD_FOLDER
