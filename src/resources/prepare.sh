@@ -42,5 +42,11 @@ ssh-keygen -t ed25519 # Select the default path and do not set any password.
 # Display the new SSH key.
 echo
 echo "Add the key below to GitHub."
+echo
 cat ~/.ssh/id_ed25519.pub
 echo
+read -s -p $'Press any key to continue...\n'
+
+# Clone the setup repo from GitHub.
+cd $WORKSPACE_FOLDER
+git clone git@github.com:wonjae-lee-2/setup
