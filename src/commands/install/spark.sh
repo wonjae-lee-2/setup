@@ -14,7 +14,14 @@ fi
 # Set environment variables.
 R_VERSION_SHORT=$(echo $R_VERSION | cut -d "." -f -2)
 INSTALL_FOLDER=/opt/spark/$SPARK_VERSION
-SPARKLYR_FOLDER=~/venv/r/$R_VERSION/renv/library/R-$R_VERSION_SHORT/aarch64-unknown-linux-gnu/sparklyr/java
+ARCHITECTURE=$(uname -m)
+if [ $ARCHITECTURE = "aarch64" ]
+then
+    SPARKLYR_FOLDER=~/venv/r/$R_VERSION/renv/library/R-$R_VERSION_SHORT/aarch64-unknown-linux-gnu/sparklyr/java
+elif [ $ARCHITECTURE = "x86_64" ]
+then
+    SPARKLYR_FOLDER=~/venv/r/$R_VERSION/renv/library/R-$R_VERSION_SHORT/x86_64-pc-linux-gnu/sparklyr/java
+fi
 
 # Install Java runtime environment.
 sudo apt update

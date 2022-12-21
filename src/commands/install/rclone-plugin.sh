@@ -12,4 +12,5 @@ sudo mkdir -p /var/lib/docker-plugins/rclone/cache
 sudo cp ~/.config/rclone/rclone.conf /var/lib/docker-plugins/rclone/config
 
 # Install the plugin.
-sudo docker plugin install rclone/docker-volume-rclone:arm64 --alias rclone --grant-all-permissions args="-v --allow-other --vfs-cache-mode=full"
+ARCHITECTURE=$(dpkg --print-architecture)
+sudo docker plugin install rclone/docker-volume-rclone:$ARCHITECTURE --alias rclone --grant-all-permissions args="-v --allow-other --vfs-cache-mode=full"

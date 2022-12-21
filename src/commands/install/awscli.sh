@@ -19,7 +19,8 @@ sudo apt install -y --no-install-recommends \
 
 # Install the AWS CLI.
 cd $DOWNLOAD_FOLDER
-curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+ARCHITECTURE=$(uname -m)
+curl "https://awscli.amazonaws.com/awscli-exe-linux-$ARCHITECTURE.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
 

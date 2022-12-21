@@ -1,7 +1,7 @@
 name: setup
 services:
   dev:
-    image: ubuntu:22.04
+    image: setup
     build:
       context: ./
       dockerfile: ./Dockerfile/Dockerfile
