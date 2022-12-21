@@ -48,3 +48,9 @@ sudo usermod -aG docker $USER
 
 # Authenticate Docker to ECR.
 aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 284409997699.dkr.ecr.us-east-1.amazonaws.com
+
+# Install the emulator for amd64.
+sudo docker run --privileged --rm tonistiigi/binfmt --install amd64
+
+# Create a new builder for multi-platform images.
+sudo docker buildx create --name builder --driver docker-container --bootstrap
