@@ -10,8 +10,17 @@ then
     exit 1
 fi
 
+# Install dependencies.
+sudo apt update
+sudo apt install -y --no-install-recommends \
+    curl \
+    ca-certificates
+
 # Install Julia using Juliaup. # https://github.com/JuliaLang/juliaup
 curl -fsSL https://install.julialang.org | sh
+
+# Add an environmental variable for multi-threading.
+echo "export JULIA_NUM_THREADS=auto" >> ~/.profile
 
 # Show the installed Julia.
 #juliaup status
