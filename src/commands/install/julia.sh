@@ -19,7 +19,8 @@ sudo apt install -y --no-install-recommends \
 # Install Julia using Juliaup. # https://github.com/JuliaLang/juliaup
 curl -fsSL https://install.julialang.org | sh
 
-# Add an environmental variable for multi-threading.
+# Add environmental variables to specify project folder and multi-threading.
+echo "export JULIA_PROJECT=@." >> ~/.profile
 echo "export JULIA_NUM_THREADS=auto" >> ~/.profile
 
 # Show the installed Julia.
