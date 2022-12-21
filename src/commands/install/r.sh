@@ -23,6 +23,7 @@ sudo apt install -y --no-install-recommends openjdk-$JAVA_VERSION-jdk
 # Install build dependencies. Add libblas-dev, liblapack-dev, build-essential and gfortran. https://cloud.r-project.org/doc/manuals/r-release/R-admin.html#Useful-libraries-and-programs
 sudo apt update
 sudo apt install -y --no-install-recommends \
+    wget \
     libbz2-dev \
     libcairo2-dev \
     fontconfig \

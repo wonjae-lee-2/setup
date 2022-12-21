@@ -10,7 +10,9 @@ fi
 
 # Install dependencies.
 sudo apt update
-sudo apt install -y --no-install-recommends curl
+sudo apt install -y --no-install-recommends \
+    curl \
+    ca-certificates
 
 # Download the repository key.
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg

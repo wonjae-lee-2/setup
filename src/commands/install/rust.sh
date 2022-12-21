@@ -10,6 +10,12 @@ then
     exit 1
 fi
 
+# Install dependencies.
+sudo apt update
+sudo apt install -y --no-install-recommends \
+    curl \
+    ca-certificates
+
 # Install Rust using Rustup. https://github.com/rust-lang/rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 

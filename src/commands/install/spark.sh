@@ -25,7 +25,9 @@ fi
 
 # Install Java runtime environment.
 sudo apt update
-sudo apt install -y --no-install-recommends openjdk-$JAVA_VERSION-jdk
+sudo apt install -y --no-install-recommends \
+    wget \
+    openjdk-$JAVA_VERSION-jdk
 
 # Download the Spark binary. (DOWNLOAD_FOLDER is exported from 'vm.sh'.)
 cd $DOWNLOAD_FOLDER

@@ -8,6 +8,12 @@ then
     exit 1
 fi
 
+# Install dependencies.
+sudo apt update
+sudo apt install -y --no-install-recommends \
+    curl \
+    ca-certificates
+
 # Install and configure Rclone for OneDrive and S3. Set the name of the remote as ondrive and s3.
 curl https://rclone.org/install.sh | sudo bash
 rclone config
