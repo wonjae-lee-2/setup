@@ -29,3 +29,10 @@ sudo rm awscliv2.zip
 
 # Configure the AWS CLI based on user credentials.
 aws configure
+
+# Download and install the Session Manager plugin.
+curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+sudo dpkg -i session-manager-plugin.deb
+
+# Delete the downloaded file.
+rm session-manager-plugin.deb
