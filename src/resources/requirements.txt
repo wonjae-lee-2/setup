@@ -1,4 +1,2 @@
-pip # https://pypi.org/project/pip/
-setuptools # https://pypi.org/project/setuptools/
-wheel # https://pypi.org/project/wheel/
+hatch # https://pypi.org/project/hatch/
 jupyterlab # https://pypi.org/project/jupyterlab/
