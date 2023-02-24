@@ -1,2 +1,6 @@
-hatch # https://pypi.org/project/hatch/
+black # https://pypi.org/project/black/
+build # https://pypi.org/project/build/
+flake8 # https://pypi.org/project/flake8/
 jupyterlab # https://pypi.org/project/jupyterlab/
+pytest # https://pypi.org/project/pytest/
+twine # https://pypi.org/project/twine/
