@@ -15,10 +15,10 @@ echo "Check the latest version of Spark. https://spark.apache.org/ https://spark
 read -p "Which version of Spark would you like to install? " SPARK_VERSION
 read -p "Which version of Java compatible with Spark would you like to install? " JAVA_VERSION
 
-# Create the config folder. (CONFIG_FOLDER is exported from 'vm.sh'.)
+# Create the config folder. (CONFIG_FOLDER is exported from 'setup.sh'.)
 mkdir $CONFIG_FOLDER
 
-# Update and save the env script to the config folder. (RESOURCES_FOLDER is exported from 'vm.sh'.)
+# Update and save the env script to the config folder. (RESOURCES_FOLDER is exported from 'setup.sh'.)
 sed -e "s/PYTHON_VERSION=/PYTHON_VERSION=$PYTHON_VERSION/g" \
     -e "s/R_VERSION=/R_VERSION=$R_VERSION/g" \
     -e "s/RSTUDIO_VERSION=/RSTUDIO_VERSION=$RSTUDIO_VERSION/g" \
@@ -26,5 +26,11 @@ sed -e "s/PYTHON_VERSION=/PYTHON_VERSION=$PYTHON_VERSION/g" \
     -e "s/JAVA_VERSION=/JAVA_VERSION=$JAVA_VERSION/g" \
     $RESOURCES_FOLDER/env.sh > $CONFIG_FOLDER/env.sh
 
-# Create a symlink to vm.sh bash script.
+# Create the vscode config folder. (CONFIG_FOLDER is exported from 'setup.sh'.)
+mkdir $VSCODE_CONFIG_FOLDER
+
+# Update and save the settings file to the vscode config folder. (RESOURCES_FOLDER is exported from 'setup.sh'.)
+sed "s/PYTHON_VERSION/$PYTHON_VERSION/g" $RESOURCES_FOLDER/settings.json > $VSCODE_CONFIG_FOLDER/settings.json
+
+# Create a symlink to setup.sh bash script.
 sudo ln -fs $SRC_FOLDER/setup.sh /usr/local/bin/setup

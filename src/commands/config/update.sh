@@ -31,3 +31,6 @@ sed -i \
     -e "s/SPARK_VERSION=.*$/SPARK_VERSION=$NEW_SPARK_VERSION/g" \
     -e "s/JAVA_VERSION=.*$/JAVA_VERSION=$NEW_JAVA_VERSION/g" \
     $CONFIG_FOLDER/env.sh
+
+# Update the vscode settings file.
+sed -i "s,/home/ubuntu/venv/python/.*/bin/python,/home/ubuntu/venv/python/$NEW_PYTHON_VERSION/bin/python,g" $VSCODE_CONFIG_FOLDER/settings.json

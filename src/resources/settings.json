@@ -1,0 +1,6 @@
+{
+    "python.defaultInterpreterPath": "/home/ubuntu/venv/python/PYTHON_VERSION/bin/python",
+    "python.formatting.provider": "black",
+    "python.linting.flake8Enabled": true,
+    "julia.executablePath": "/home/ubuntu/.julia/juliaup/bin/julia"
+}
