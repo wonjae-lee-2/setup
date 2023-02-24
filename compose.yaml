@@ -3,8 +3,8 @@ services:
   dev:
     image: setup
     build:
-      context: ./
-      dockerfile: ./Dockerfile/Dockerfile
+      context: .
+      dockerfile: Dockerfile/Dockerfile
     volumes:
       - type: bind
         source: /home/ubuntu/workspaces/setup
