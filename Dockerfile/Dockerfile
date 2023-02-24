@@ -3,7 +3,6 @@ FROM ubuntu:22.04
 WORKDIR /
 
 RUN apt-get update && \
-    apt-get upgrade -y --no-install-recommends && \
     apt-get install -y --no-install-recommends sudo && \
     rm -rf /var/lib/apt/lists/* && \
     useradd -m ubuntu && \
