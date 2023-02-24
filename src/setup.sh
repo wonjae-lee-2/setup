@@ -7,6 +7,7 @@ export RESOURCES_FOLDER=$SRC_FOLDER/resources
 export CONFIG_FOLDER=~/.setup
 export DOWNLOAD_FOLDER=~/downloads
 export VSCODE_CONFIG_FOLDER=~/.vscode-server/data/Machine
+export CURRENT_FOLDER=$(pwd)
 
 # Run the script identified by positional arguments.
 cd $COMMANDS_FOLDER/$1
