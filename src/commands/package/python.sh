@@ -20,7 +20,11 @@ then
     rm -r $VENV_FOLDER
 fi
 
-# Create a new virtual environment.
+# Install Poetry and edit config.
+curl -sSL https://install.python-poetry.org | /opt/python/$PYTHON_VERSION/bin/python3 -
+~/.local/share/pypoetry/venv/bin/poetry config virtualenvs.in-project true
+
+# Create a default virtual environment.
 /opt/python/$PYTHON_VERSION/bin/python3 -m venv $VENV_FOLDER
 
 # Activate the virtiual environment.

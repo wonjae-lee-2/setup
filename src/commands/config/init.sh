@@ -26,11 +26,11 @@ sed -e "s/PYTHON_VERSION=/PYTHON_VERSION=$PYTHON_VERSION/g" \
     -e "s/JAVA_VERSION=/JAVA_VERSION=$JAVA_VERSION/g" \
     $RESOURCES_FOLDER/env.sh > $CONFIG_FOLDER/env.sh
 
-# Create the vscode config folder. (CONFIG_FOLDER is exported from 'setup.sh'.)
+# Create the vscode config folder. (VSCODE_CONFIG_FOLDER is exported from 'setup.sh'.)
 mkdir $VSCODE_CONFIG_FOLDER
 
-# Update and save the settings file to the vscode config folder. (RESOURCES_FOLDER is exported from 'setup.sh'.)
-sed "s/PYTHON_VERSION/$PYTHON_VERSION/g" $RESOURCES_FOLDER/settings.json > $VSCODE_CONFIG_FOLDER/settings.json
+# Copy the settings file to the vscode config folder. (RESOURCES_FOLDER is exported from 'setup.sh'.)
+cp $RESOURCES_FOLDER/settings.json $VSCODE_CONFIG_FOLDER/settings.json
 
 # Create a symlink to setup.sh bash script.
 sudo ln -fs $SRC_FOLDER/setup.sh /usr/local/bin/setup
