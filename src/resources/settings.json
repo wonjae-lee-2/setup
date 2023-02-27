@@ -1,9 +1,18 @@
 {
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "python.defaultInterpreterPath": "/home/ubuntu/venv/python/PYTHON_VERSION/bin/python",
-    "python.linting.flake8Enabled": true,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
-    "julia.executablePath": "/home/ubuntu/.julia/juliaup/bin/julia"
+  "remote.SSH.remotePlatform": {
+    "aws": "linux"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "python.linting.flake8Enabled": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnType": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
