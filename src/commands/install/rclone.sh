@@ -24,6 +24,6 @@ cat << EOF | sudo tee /usr/local/bin/backup
 
 DIRECTORY_PATH=\$(pwd)
 DIRECTORY_NAME=\$(echo \$DIRECTORY_PATH | rev | cut -d "/" -f 1 | rev)
-rclone sync --progress \$DIRECTORY_PATH onedrive:workspaces/\$DIRECTORY_NAME
+rclone sync --progress \$DIRECTORY_PATH onedrive:workspaces/\$DIRECTORY_NAME --exclude=/.venv/
 EOF
 sudo chmod +x /usr/local/bin/backup
