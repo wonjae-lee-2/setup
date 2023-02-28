@@ -9,7 +9,7 @@ services:
       - type: bind
         source: /home/ubuntu/workspaces/GITHUB_REPO
         target: /home/ubuntu/GITHUB_REPO
-    tty: true
+    working_dir: /home/ubuntu/GITHUB_REPO
   prod:
     image: GITHUB_REPO-prod:latest
     build:
