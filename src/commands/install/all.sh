@@ -4,7 +4,7 @@
 bash awscli.sh
 bash rclone.sh
 bash docker.sh
-bash rclone-plugin.sh
+#bash rclone-plugin.sh
 bash python.sh
 bash ../package/python.sh
 bash r.sh
