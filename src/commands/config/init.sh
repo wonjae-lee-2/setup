@@ -30,7 +30,7 @@ sed -e "s/PYTHON_VERSION=/PYTHON_VERSION=$PYTHON_VERSION/g" \
 
 # Create the vscode config folder. (VSCODE_CONFIG_FOLDER is exported from 'setup.sh'.)
 if [ ! -d "$VSCODE_CONFIG_FOLDER" ]; then
-    mkdir $VSCODE_CONFIG_FOLDER
+    mkdir -p $VSCODE_CONFIG_FOLDER
 fi
 
 # Copy the settings file to the vscode config folder. (RESOURCES_FOLDER is exported from 'setup.sh'.)
