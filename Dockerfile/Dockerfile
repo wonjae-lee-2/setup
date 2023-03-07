@@ -15,4 +15,4 @@ WORKDIR /home/ubuntu
 
 RUN mkdir /home/ubuntu/downloads
 
-CMD ["/bin/bash"]
+CMD [ "/bin/sh", "-c", "while sleep 1000; do :; done" ]

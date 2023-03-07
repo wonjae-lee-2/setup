@@ -9,4 +9,3 @@ services:
       - type: bind
         source: /home/ubuntu/workspaces/setup
         target: /home/ubuntu/workspaces/setup
-    tty: true
