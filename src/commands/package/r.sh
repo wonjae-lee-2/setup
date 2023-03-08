@@ -13,8 +13,11 @@ fi
 
 # Install package dependencies.
 sudo apt-get update
-sudo apt-get install -y libgit2-dev
+sudo apt-get install -y \
+    libgit2-dev
+    libxml2-dev
     #libgit2-dev - gert
+    #libxml2-dev - xml2
 
 # Install packages.
 Rscript $RESOURCES_FOLDER/install.r
