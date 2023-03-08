@@ -42,3 +42,6 @@ sudo systemctl stop rstudio-server
 
 # Stop RStudio Server from starting automatically at startup.
 sudo systemctl disable rstudio-server
+
+# Change password for ubuntu.
+echo ubuntu:wildgrape | sudo chpasswd
