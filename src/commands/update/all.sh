@@ -10,8 +10,8 @@ rclone selfupdate
 bash awscli.sh
 
 # Update Docker and GitHub CLI.
-sudo apt update
-sudo apt upgrade -y --no-install-recommends
+sudo apt-get update
+sudo apt-get upgrade -y
 
 # Update Google Cloud CLI.
 #sudo snap refresh
@@ -31,9 +31,9 @@ bash ../install/rstudio.sh
 bash ../install/spark.sh
 
 # Update Julia.
-juilaup self update
-juliaup update
-bash ../package/julia.sh
+#juilaup self update
+#juliaup update
+#bash ../package/julia.sh
 
 # Update Rust.
 rustup update
@@ -42,7 +42,7 @@ rustup update
 #bash ../install/helm.sh
 
 # Update Rclone plugin.
-docker plugin disable rclone
-docker plugin upgrade rclone
-docker plugin enable rclone
+#docker plugin disable rclone
+#docker plugin upgrade rclone
+#docker plugin enable rclone
 
