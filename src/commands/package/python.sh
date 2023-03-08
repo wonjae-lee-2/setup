@@ -25,16 +25,16 @@ curl -sSL https://install.python-poetry.org | /opt/python/$PYTHON_VERSION/bin/py
 ~/.local/share/pypoetry/venv/bin/poetry config virtualenvs.in-project true
 
 # Create a default virtual environment.
-/opt/python/$PYTHON_VERSION/bin/python3 -m venv $VENV_FOLDER
+#/opt/python/$PYTHON_VERSION/bin/python3 -m venv $VENV_FOLDER
 
 # Activate the virtiual environment.
-source $VENV_FOLDER/bin/activate
+#source $VENV_FOLDER/bin/activate
 
 # Install package management tools.
-pip install -U pip setuptools wheel
+/opt/python/$PYTHON_VERSION/bin/python3 -m pip install -U pip setuptools wheel
 
 # Install and upgrade packages.
-pip install -U -r $RESOURCES_FOLDER/requirements.txt
+/opt/python/$PYTHON_VERSION/bin/python3 -m pip install -U -r $RESOURCES_FOLDER/requirements.txt
 
 # Deactivate the virtual environment.
-deactivate
+#deactivate

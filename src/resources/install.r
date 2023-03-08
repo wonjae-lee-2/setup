@@ -1,7 +1,11 @@
-project_folder <- c(Sys.getenv("PROJECT_FOLDER"))
-package_list <- c("sparklyr", "devtools") # https://cloud.r-project.org/web/packages/sparklyr/index.html
+package_list <- c("renv", "devtools", "sparklyr")
 
-renv::activate(project = project_folder)
-options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
-install.packages("remotes")
-remotes::install_cran(package_list)
+dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)
+.libPaths(c(Sys.getenv("R_LIBS_USER"), .libPaths()))
+install.packages("pak", repos = sprintf(
+  "https://r-lib.github.io/p/pak/stable/%s/%s/%s",
+  .Platform$pkgType,
+  R.Version()$os,
+  R.Version()$arch
+))
+pak::pkg_install(package_list)
