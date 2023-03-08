@@ -15,6 +15,8 @@ USER ubuntu
 
 WORKDIR /home/ubuntu
 
-RUN mkdir /home/ubuntu/downloads
+RUN mkdir /home/ubuntu/downloads && \
+    echo "export LANG=C.UTF-8" >> /home/ubuntu/.profile && \
+    echo "export LC_ALL=C.UTF-8" >> /home/ubuntu/.profile
 
 CMD [ "/bin/sh", "-c", "while sleep 1000; do :; done" ]
