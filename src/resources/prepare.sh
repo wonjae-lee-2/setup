@@ -35,6 +35,7 @@ mkdir $DOWNLOAD_FOLDER $VENV_FOLDER $WORKSPACE_FOLDER
 sudo apt update
 sudo apt install git
 git config --global user.email "wonjae.lee.2@gmail.com"
+git config --global user.name "Wonjae Lee"
 
 # Generate a new SSH key.
 ssh-keygen -t ed25519 # Select the default path and do not set any password.
