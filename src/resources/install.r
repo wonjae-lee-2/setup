@@ -1,4 +1,4 @@
-package_list <- c("renv", "devtools", "sparklyr")
+package_list <- c("devtools", "lintr", "sparklyr", "styler", "renv")
 
 dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)
 .libPaths(c(Sys.getenv("R_LIBS_USER"), .libPaths()))
