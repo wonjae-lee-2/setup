@@ -1,5 +1,4 @@
 {
-  "terminal.integrated.defaultProfile.linux": "bash",
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
@@ -8,5 +7,13 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash",
+      "args": ["-l"]
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "bash"
 }
