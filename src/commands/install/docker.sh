@@ -11,40 +11,40 @@ then
 fi
 
 # Set environment variables.
-GPG_KEY_PATH=/usr/share/keyrings/docker.gpg
+# GPG_KEY_PATH=/usr/share/keyrings/docker.gpg
 
 # Uninstall old versions.
-#sudo apt remove \
-#    docker \
-#    docker-engine \
-#    docker.io \
-#    containerd runc
+# for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
-# Install dependencies.
-sudo apt update
-sudo apt install -y --no-install-recommends \
+# Add Docker's official GPG key.
+sudo apt-get update
+sudo apt-get -y install \
     ca-certificates \
     curl \
-    gnupg \
-    lsb-release
+    gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-# Download the repository key.
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --yes --dearmor -o $GPG_KEY_PATH
-
-# Create the repository configuration.
-echo "deb [arch=$(dpkg --print-architecture) signed-by=$GPG_KEY_PATH] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Install Docker from the repository.
+# Add the repository to Apt sources.
+echo \
+    "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends \
+
+# Install the latest Docker packages.
+sudo apt-get -y install \
     docker-ce \
     docker-ce-cli \
     containerd.io \
+    docker-buildx-plugin \
     docker-compose-plugin
 
 # create the docker group and add the default user.
 sudo groupadd docker
 sudo usermod -aG docker $USER
+newgrp docker
 
 # Authenticate Docker to ECR.
-aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 284409997699.dkr.ecr.us-east-1.amazonaws.com
+# aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 284409997699.dkr.ecr.us-east-1.amazonaws.com
