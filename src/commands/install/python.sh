@@ -17,8 +17,8 @@ BUILD_FOLDER=$DOWNLOAD_FOLDER/python/$PYTHON_VERSION
 INSTALL_FOLDER=/opt/python/$PYTHON_VERSION
 
 # Install build dependencies. https://devguide.python.org/setup/#install-dependencies
-sudo apt update
-sudo apt install -y --no-install-recommends \
+sudo apt-get update
+sudo apt-get -y install \
     wget \
     build-essential \
     gdb \
@@ -51,13 +51,13 @@ tar -x -f Python-$PYTHON_VERSION.tgz -C $BUILD_FOLDER --strip-components=1
 cd $BUILD_FOLDER
 ./configure \
     --prefix=$INSTALL_FOLDER \
-    --enable-shared \
+    --enable-loadable-sqlite-extensions \
     --enable-optimizations \
-    --with-lto \
-    LDFLAGS=-Wl,-rpath,$INSTALL_FOLDER/lib
-make -j -s
+    --enable-shared \
+    --with-lto
+make -s -j LDFLAGS="-Wl,-rpath,$INSTALL_FOLDER/lib"
 sudo make install
 
 # Delete the downloaded file and the build folder.
-sudo rm $DOWNLOAD_FOLDER/Python-$PYTHON_VERSION.tgz
+rm $DOWNLOAD_FOLDER/Python-$PYTHON_VERSION.tgz
 sudo rm -r $BUILD_FOLDER
