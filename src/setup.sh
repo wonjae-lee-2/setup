@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set folder paths.
-export SRC_FOLDER=~/workspace/setup/src
+export SRC_FOLDER=~/efs/setup/src
 export COMMANDS_FOLDER=$SRC_FOLDER/commands
 export RESOURCES_FOLDER=$SRC_FOLDER/resources
 export CONFIG_FOLDER=~/.setup
