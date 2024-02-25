@@ -65,3 +65,8 @@ sudo rm -r $BUILD_FOLDER
 # Install poetry.
 cd ~
 curl -sSL https://install.python-poetry.org | $INSTALL_FOLDER/bin/python3 -
+
+# Add poetry to PATH
+echo "" >> ~/.profile
+echo "# Add poetry to PATH" >> ~/.profile
+echo "export PATH=\"/home/ubuntu/.local/bin:\$PATH\"" >> ~/.profile
