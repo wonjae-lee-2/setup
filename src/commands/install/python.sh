@@ -63,4 +63,5 @@ rm $DOWNLOAD_FOLDER/Python-$PYTHON_VERSION.tgz
 sudo rm -r $BUILD_FOLDER
 
 # Install poetry.
+cd ~
 curl -sSL https://install.python-poetry.org | $INSTALL_FOLDER/bin/python3 -
