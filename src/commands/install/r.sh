@@ -73,7 +73,7 @@ cd $BUILD_FOLDER
     --with-lapack \
     --with-tcltk \
     --with-recommended-packages
-make -j -s
+make -j4 -s
 sudo make install
 
 # Create a symlink to R.

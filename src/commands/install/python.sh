@@ -55,7 +55,7 @@ cd $BUILD_FOLDER
     --enable-optimizations \
     --enable-shared \
     --with-lto
-make -s -j LDFLAGS="-Wl,-rpath,$INSTALL_FOLDER/lib"
+make -s -j4 LDFLAGS="-Wl,-rpath,$INSTALL_FOLDER/lib"
 sudo make install
 
 # Delete the downloaded file and the build folder.
