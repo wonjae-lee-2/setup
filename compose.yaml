@@ -7,5 +7,5 @@ services:
       dockerfile: Dockerfile/Dockerfile
     volumes:
       - type: bind
-        source: /home/ubuntu/workspaces/setup
-        target: /home/ubuntu/workspaces/setup
+        source: /home/ubuntu/efs/setup
+        target: /home/ubuntu/efs/setup
